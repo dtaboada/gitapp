@@ -63,6 +63,8 @@ window.onRemove = async function () {
     await movementService.update(state.movement);
     state.movement = {};
     render('movement-form.html', state, refs.form);
+    state.movements = await getIncomes();
+    renderIncomes(state);
 };
 
 /**
@@ -81,6 +83,8 @@ window.onSave = async function (e) {
 
     state.movement = {};
     render('movement-form.html', state, refs.form);
+    state.movements = await getIncomes();
+    renderIncomes(state);
 };
 
 init();
