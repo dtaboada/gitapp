@@ -39,15 +39,10 @@ describe('Ingresos Test', () => {
         cy.contains('Guardar').click();
         
         //validar contenido del alert y del boton
-        const stub = cy.stub(); 
         const mensajeDelAlert = 'se creo un movimiento con exito'; 
-        cy.on ('window:alert', stub);
-
-        cy
-        .get('button')
-        .then(() => {
-            expect(stub.getCall(0)).to.be.calledWith(mensajeDelAlert)
-        })  
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(mensajeDelAlert)
+        })
       
       });
       
