@@ -28,4 +28,27 @@ describe('Ingresos Test', () => {
 
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
+
+    it('Se debe mostrar una alerta cuando un movimiento se cree exitosamente', () => {
+        cy.visit('/income');
+        
+        //crear un movimiento
+        cy.get('input[name=date]').type('2021-04-26');
+        cy.get('input[name=category]').type('Bono');
+        cy.get('input[name=amount]').type('100000');
+        cy.contains('Guardar').click();
+        
+        //validar contenido del alert y del boton
+        const stub = cy.stub(); 
+        const mensajeDelAlert = 'se creo un movimiento con exito'; 
+        cy.on ('window:alert', stub);
+
+        cy
+        .get('button')
+        .then(() => {
+            expect(stub.getCall(0)).to.be.calledWith(mensajeDelAlert)
+        })  
+      
+      });
+      
 });
