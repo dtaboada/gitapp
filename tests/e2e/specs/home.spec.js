@@ -9,6 +9,26 @@ describe('Home Test', () => {
         cy.title().should('eq', 'Gitapp');
     });
 
+
+    //Verifica que se utilice card-header-title en el titulo
+    it('Deberia tener el titulo con la clase card-header-title', () => {
+        cy.visit('/');
+        cy.get('.card').each((card) => {
+          cy.wrap(card).get('.card-header-title').should('be.visible');
+        });
+
+    });
+
+
+    //Verifica que se utilice card-header en el titulo
+    it('Deberia tener el titulo con la clase card-header', () => {
+        cy.visit('/');
+        cy.get('.card').each((card) => {
+            cy.wrap(card).get('.card-header').should('be.visible');
+        });
+    });
+
+
     it('Deberia mostrar los ultimos 5 movimientos', () => {
         cy.visit('/');
 
