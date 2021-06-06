@@ -304,6 +304,8 @@ test('Eliminar un movimiento por api', async () => {
     const movement = await MovementModel.create(movementData);
     
     const URL = `${baseURL}/movements/${movement.id}`;
+    const URLM = `${baseURL}/movements`;
+
     const req = await fetch(URL, {
         method: 'DELETE',
         headers: {
@@ -311,6 +313,10 @@ test('Eliminar un movimiento por api', async () => {
         },
         body: JSON.stringify(movement),
     });
+        
+    const reqm = await fetch(URLM);
+    const body = await reqm.json();
 
     expect(req.status).toBe(200);
+    expect(body.movements.length).toBe(0);
 });
