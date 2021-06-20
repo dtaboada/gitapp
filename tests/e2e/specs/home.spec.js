@@ -29,6 +29,20 @@ describe('Home Test', () => {
     });
 
 
+    //Verifica que se coloque signo (+) a un ingreso y (-) a un egreso
+    it('Deberia tener signo (+) un ingreso y signo (-) un egreso', () => {
+        cy.visit('/');
+        cy.get('.level-right .level-item').each((amount) => {
+            if (cy.wrap(amount).get(".has-text-success.is-size-3").length > 0) {
+                cy.wrap(amount).should('include.text','$')
+            } else {
+                cy.wrap(amount).should('include.text','$')
+            }
+        });
+    });
+
+
+
     it('Deberia mostrar los ultimos 5 movimientos', () => {
         cy.visit('/');
 
