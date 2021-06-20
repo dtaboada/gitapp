@@ -63,7 +63,7 @@ window.onRemove = async function () {
     await movementService.remove(state.movement);
     render('movement-form.html', state, refs.form);
     state.movements = await getExpenses();
-    renderIncomes(state);
+    renderExpenses(state);
 };
 
 /**
