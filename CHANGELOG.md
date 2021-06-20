@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-06-20
+
+### Added
+
+-   End point eliminar movimiento
+-   Notificacion exito al crear movimiento
+-   test unitario, e2e para nuevas funcionalidades
+
+### Fixed
+
+-   Correccion headers
+-   Refresh movimientos al crear
+
 ## [1.0.1] - 2021-05-03
 
 ### Added
@@ -30,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Home UI with charts and last movements
 -   Incomes UI with last incomes
 
-[unreleased]: https://github.com/frlp-utn-ingsoft/gitapp/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/frlp-utn-ingsoft/gitapp/releases/tag/v1.0.1
-[1.0.0]: https://github.com/frlp-utn-ingsoft/gitapp/releases/tag/v1.0.0
+[unreleased]: https://github.com/dtaboada/gitapp/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/dtaboada/gitapp/releases/tag/v1.1.0
+[1.0.1]: https://github.com/dtaboada/gitapp/releases/tag/v1.0.1
+[1.0.0]: https://github.com/dtaboada/gitapp/releases/tag/v1.0.0
