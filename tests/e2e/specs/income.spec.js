@@ -49,13 +49,38 @@ describe('Ingresos Test', () => {
         cy.get('input[name=category]').type('Bono');
         cy.get('input[name=amount]').type('100000');
         cy.contains('Guardar').click();
-        
+        cy.reload()
+
         //validar contenido del alert y del boton
         const mensajeDelAlert = 'se creo un movimiento con exito'; 
         cy.on('window:alert', (str) => {
             expect(str).to.equal(mensajeDelAlert)
         })
-      
+              
       });
+
+
+      it('Se debe mostrar una confirmacion antes de eliminar', () => {
+        cy.visit('/income');
+       
+        //crear un movimiento
+       cy.get('input[name=date]').type('2021-04-26');
+       cy.get('input[name=category]').type('Bono');
+       cy.get('input[name=amount]').type('100000');
+       cy.contains('Guardar').click();
+       cy.reload()
+       cy.contains('editar').click();
+       cy.contains('Eliminar').click();
+
+        //validar contenido del alert y del boton
+        const mensajeDelAlert = 'Seguro que quiere eliminar?'; 
+        cy.on('window:confirm', (str) => {
+            expect(str).to.equal(mensajeDelAlert)
+        })
+              
+      });
+
+
+
       
 });

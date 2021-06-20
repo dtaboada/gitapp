@@ -40,16 +40,22 @@ async function create(movement) {
 }
 
 async function remove(movement) {
-    const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
+
+    var msg = confirm("Seguro que quiere eliminar?");      
+    if (msg == true)  {
+
+            const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(movement),        
+                    },
+        body: JSON.stringify(movement),      
+       
     });
-
     return resp.json();
+    }
 }
+
 
 export default {
     create,
