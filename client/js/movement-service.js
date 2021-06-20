@@ -53,8 +53,8 @@ async function remove(movement) {
        
     });
     return resp.json();
-    };
-};
+    }
+}
 
 
 export default {
