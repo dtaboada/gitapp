@@ -18,5 +18,5 @@ test('Deberia renderizar correctamente un movimiento del tipo income', () => {
         'src',
         expect.stringContaining('income')
     );
-    expect(getByText($movement, '$')).toHaveClass('has-text-success');
+    expect(getByText($movement, '$ +')).toHaveClass('has-text-success');
 });
