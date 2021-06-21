@@ -24,7 +24,9 @@
             <p
                 class="{{ 'has-text-success' if movement.type == 'income' else 'has-text-danger' }} is-size-3"
             >
-                $ {{ movement.amount | monefy }}
+                
+                $ {{'+' if movement.type == 'income' else '-' }} {{ movement.amount | monefy }}
+
             </p>
         </div>
 
